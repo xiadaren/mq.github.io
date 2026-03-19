@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>路线图 - 平略村平坤上旅游网</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 路线图页面样式 */
+        .map-section {
+            padding: 40px 0;
+            background-color: #f5e6d3;
+            background-image: linear-gradient(135deg, #f5e6d3 0%, #f9f6f0 100%);
+        }
+
+        .map-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #f9f6f0;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            border: 2px solid #8a1a1a;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #8a1a1a, #d4af37, #8a1a1a);
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 500px;
+            background-color: #e8e0d0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #666;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #8a1a1a;
+        }
+
+        .map-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .map-info {
+            margin-top: 40px;
+        }
+
+        .map-info h3 {
+            color: #8a1a1a;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .map-info p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #333;
+            text-align: justify;
+        }
+
+        .route-list {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .route-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #e8e0d0;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .route-list li:hover {
+            transform: translateX(10px);
+        }
+
+        .route-list li:before {
+            content: "•";
+            color: #8a1a1a;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+
+        .back-btn {
+            display: inline-block;
+            background-color: #8a1a1a;
+            color: #f5e6d3;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .back-btn:hover {
+            background-color: #a82323;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .map-container {
+                padding: 25px;
+            }
+
+            .map-placeholder {
+                height: 300px;
+            }
+
+            .map-info h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .map-placeholder {
+                height: 200px;
+            }
+
+            .map-info h3 {
+                font-size: 1.3rem;
+            }
+
+            .map-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo-card">
+                <h1>平略村平坤上旅游网</h1>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">📞</div>
+                <div class="contact-info">
+                    <div class="contact-title">导游联系</div>
+                    <div class="contact-number">10086</div>
+                </div>
+            </div>
+            <a href="index.html" class="map-btn">返回首页</a>
+        </div>
+    </header>
+
+    <!-- 地图区域 -->
+    <section class="map-section">
+        <div class="container">
+            <div class="map-container">
+                <h2 style="text-align: center; margin-bottom: 30px; color: #333;">旅游路线图</h2>
+                <div class="map-placeholder">
+                    <img src="images/map-placeholder.jpg" alt="路线图" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"800\" height=\"500\" viewBox=\"0 0 800 500\"><rect width=\"800\" height=\"500\" fill=\"%23e8e0d0\"/><text x=\"400\" y=\"250\" font-family=\"SimSun, STSong, serif\" font-size=\"20\" fill=\"%238a1a1a\" text-anchor=\"middle\" dominant-baseline=\"middle\">地图加载失败</text></svg>';">
+                </div>
+                <div class="map-info">
+                    <h3>路线介绍</h3>
+                    <p>平略村平坤上旅游路线涵盖了三个主要打卡点，全程约5公里，预计游览时间3-4小时。路线设计合理，适合各个年龄段的游客。</p>
+                    <h3>推荐路线</h3>
+                    <ul class="route-list">
+                        <li>起点：平坤上古村（打卡点1）- 游览古村落风貌</li>
+                        <li>途中：平略山水库（打卡点2）- 欣赏湖光山色</li>
+                        <li>终点：平坤上茶园（打卡点3）- 体验茶文化</li>
+                    </ul>
+                    <h3>交通提示</h3>
+                    <p>游客可以选择步行游览，也可以乘坐景区观光车。观光车票价20元/人，全程接送。</p>
+                    <a href="index.html" class="back-btn">返回首页</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 平略村平坤上旅游网. 保留所有权利.</p>
+        </div>
+    </footer>
+</body>
+</html>
